@@ -15,15 +15,15 @@ function Header({ user, setUser }) {
               <Link to="/offers">
                 <img src={Logo} className="logo"></img>
               </Link>
-              <button className="postoffer">
-                {/* <FontAwesomeIcon icon="plus-square" /> */}+ Déposer une
-                annonce
-              </button>
+              <Link to="/publish" className="publlish">
+                <button className="postoffer">+ Déposer une annonce</button>
+              </Link>
               <button className="search">O Rechercher</button>
             </div>
             {user === null ? (
               <div className="modal">
                 <div className="icon-connect">
+                  <FontAwesomeIcon icon={["far", "user"]} />
                   <Link to="/log_in">
                     <button className="connect">Se connecter</button>{" "}
                   </Link>

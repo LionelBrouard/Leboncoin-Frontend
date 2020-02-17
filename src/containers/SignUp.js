@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SignUp = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -31,30 +32,37 @@ const SignUp = ({ setUser }) => {
         <div className="sign-up">
           <div className="text-sign-up">
             <h2>Pourquoi créer un compte ?</h2>
-            <div className="time">
-              <h3>Gagnez du temps</h3>
+            <div className="timegen">
+              <FontAwesomeIcon icon={["far", "clock"]} className="icon" />
+              <div className="time">
+                <h3>Gagnez du temps</h3>
+                <p>
+                  Publier vos annonces rapidement avec vos informations
+                  pré-remplies chaque fois que vous souhaitez déposer une
+                  nouvele annonce.
+                </p>
+              </div>
+            </div>
+            <div className="firstgen">
+              <FontAwesomeIcon icon={["far", "bell"]} className="icon" />
+              <div className="first">
+                <h3>Soyez les premiers informés</h3>
+                <p>
+                  Créez des alertes Immo ou Emploi et ne manquez jamais
+                  l'annonce qui vous interresse.
+                </p>
+              </div>
+            </div>
 
-              <p>
-                Publier vos annonces rapidement avec vos informations
-                pré-remplies chaque fois que vous souhaitez déposer une nouvele
-                annonce.
-              </p>
-            </div>
-            <div className="firs">
-              <i></i>
-              <h3>Soyez les premiers informés</h3>
-              <p>
-                Créez des alertes Immo ou Emploi et ne manquez jamais l'annonce
-                qui vous interresse.
-              </p>
-            </div>
-            <div className="view">
-              <i></i>
-              <h3>Visibilité</h3>
-              <p>
-                Suivez les statistiques de vos annonces,nombre de fois où votre
-                annonce a été vue, nombre de contacts reçus.
-              </p>
+            <div className="viewgen">
+              <FontAwesomeIcon icon={["far", "eye"]} className="icon" />
+              <div className="view">
+                <h3>Visibilité</h3>
+                <p>
+                  Suivez les statistiques de vos annonces,nombre de fois où
+                  votre annonce a été vue, nombre de contacts reçus.
+                </p>
+              </div>
             </div>
           </div>
           <div className="sign-up-form">
@@ -134,7 +142,7 @@ const SignUp = ({ setUser }) => {
             </form>
           </div>
         </div>
-      </div>
+      </div>{" "}
     </>
   );
 };

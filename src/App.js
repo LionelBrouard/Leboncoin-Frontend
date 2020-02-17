@@ -10,8 +10,14 @@ import SignUp from "./containers/SignUp";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-library.add(faUser);
+import {
+  faUser,
+  faClock,
+  faBell,
+  faEye
+} from "@fortawesome/free-regular-svg-icons";
+import Publish from "./containers/Publish";
+library.add(faUser, faClock, faBell, faEye);
 
 function App() {
   const tokenFromCookie = Cookies.get("userToken");
@@ -29,6 +35,9 @@ function App() {
       <Router>
         <Header user={user} setUser={setUser} />
         <Switch>
+          <Route path="/publish">
+            <Publish />
+          </Route>
           <Route path="/log_in">
             <LogIn setUser={setUser} />
           </Route>

@@ -15,6 +15,7 @@ a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 
 h2 {
@@ -336,6 +337,9 @@ p {
   align-items: center;
   box-shadow: 3px 3px 10px silver;
 }
+.sign-up h2 {
+  margin-left: 30px;
+}
 
 .sign-up-form {
   flex-direction: column;
@@ -375,4 +379,92 @@ p {
   display: flex;
   flex-direction: column;
   margin-left: 150px;
+}
+.publish input {
+  width: 350px;
+  height: 44px;
+  border-radius: 5px;
+  border: none;
+  border: 1px silver solid;
+}
+
+.publish button {
+  width: 350px;
+  height: 44px;
+  border-radius: 5px;
+  background-color: #4183d7;
+  font-size: 16px;
+  font-weight: Bold;
+  color: white;
+  cursor: pointer;
+}
+.publish .photo {
+  border: none;
+}
+
+.publish {
+  box-shadow: 3px 3px 10px silver;
+  width: 1000px;
+  height: 714px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.publish h2 {
+  width: 350 px;
+
+  line-height: 22px;
+}
+.space {
+  border-bottom: 2px solid #f56b2a;
+  width: 350px;
+}
+.textpublish {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textpublish h2 {
+  margin: 0 auto;
+}
+
+.textpublish input .price {
+  width: 165 px;
+  height: 44px;
+}
+
+.icon {
+  font-size: 50px;
+}
+.timegen {
+  display: flex;
+}
+
+.time {
+  margin-left: 50px;
+}
+
+.firstgen {
+  display: flex;
+}
+
+.first {
+  margin-left: 50px;
+}
+
+.viewgen {
+  display: flex;
+}
+
+.view {
+  margin-left: 50px;
+}
+
+.icon {
+  margin-left: 30px;
 }
