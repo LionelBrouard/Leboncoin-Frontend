@@ -9,15 +9,15 @@ import LogIn from "./containers/LogIn";
 import SignUp from "./containers/SignUp";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faClock,
   faBell,
   faEye
 } from "@fortawesome/free-regular-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Publish from "./containers/Publish";
-library.add(faUser, faClock, faBell, faEye);
+library.add(faUser, faClock, faBell, faEye, faSearch);
 
 function App() {
   const tokenFromCookie = Cookies.get("userToken");

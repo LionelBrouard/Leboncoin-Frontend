@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function Publish() {
-  const [announcetitle, setAnnouncetitle] = useState("");
-  const [announcetext, setAnnouncetext] = useState("");
-  const [announceprice, setAnnounceprice] = useState("");
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [price, setPrice] = useState("");
   const [file, setFile] = useState();
+
+  const userToken = Cookies.get("userToken");
 
   return (
     <>
@@ -15,17 +18,29 @@ function Publish() {
 
           const formData = new FormData();
 
-          formData.append("announcetitle", "announcetitle");
-          formData.append("announcetext", "announcetext");
-          formData.append("announceprice", "announceprice");
-          formData.append("picture", file);
-
-          const response = await axios.post(
-            "https://leboncoin-api.herokuapp.com/api/offer/publish",
-            formData
-          );
-
-          console.log(response.data);
+          formData.append("title", title);
+          formData.append("text", text);
+          formData.append("price", price);
+          formData.append("files", file);
+          try {
+            const response = await axios.post(
+              "https://leboncoin-api.herokuapp.com/api/offer/publish",
+              formData,
+              {
+                headers: {
+                  Authorization: "Bearer " + userToken,
+                  "Content-Type": "multipart/form-data"
+                }
+              }
+            );
+            alert(JSON.stringify(response.data));
+          } catch (err) {
+            if (err.response.status === 500) {
+              console.error("An error occurred");
+            } else {
+              console.error(err.response.data.msg);
+            }
+          }
         }}
       >
         <div className="wrapper publish">
@@ -36,26 +51,27 @@ function Publish() {
             <h3>Titre de l'annonce</h3>
             <input
               type="text"
-              value={announcetitle}
+              value={title}
               onChange={event => {
-                setAnnouncetitle(event.target.value);
+                setTitle(event.target.value);
               }}
             />
             <h3>Texte de l'annonce</h3>
             <input
+              className="textarea"
               type="area"
-              value={announcetext}
+              value={text}
               onChange={event => {
-                setAnnouncetext(event.target.value);
+                setText(event.target.value);
               }}
             />
             <h3>Prix</h3>
             <input
               classeName="price"
-              type="text"
-              value={announceprice}
+              type="number"
+              value={price}
               onChange={event => {
-                setAnnounceprice(event.target.value);
+                setPrice(event.target.value);
               }}
             />
             <h3>Photo</h3>
@@ -70,7 +86,7 @@ function Publish() {
               <button type="submit">Valider</button>
             </div>
           </div>
-        </div>{" "}
+        </div>
       </form>
     </>
   );

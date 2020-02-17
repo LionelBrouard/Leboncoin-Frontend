@@ -411,6 +411,7 @@ p {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .publish h2 {
@@ -433,9 +434,8 @@ p {
   margin: 0 auto;
 }
 
-.textpublish input .price {
-  width: 165 px;
-  height: 44px;
+.textpublish input {
+  font-size: 16px;
 }
 
 .icon {
@@ -467,4 +467,8 @@ p {
 
 .icon {
   margin-left: 30px;
+}
+
+.textpublish .textarea {
+  height: 100px;
 }

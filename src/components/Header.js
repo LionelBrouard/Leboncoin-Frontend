@@ -38,6 +38,8 @@ function Header({ user, setUser }) {
                   history.push("/");
                 }}
               >
+                {" "}
+                <FontAwesomeIcon icon={["far", "user"]} />
                 Se déconnecter
               </button>
             )}
